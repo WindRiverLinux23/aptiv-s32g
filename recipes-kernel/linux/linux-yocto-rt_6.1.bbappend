@@ -8,6 +8,7 @@ LINUX_HVP_PATCH="${@bb.utils.contains('MACHINE_FEATURES', 'hvp', 'file://0001-dt
 LINUX_DM_VERITY_PATCH = " ${@bb.utils.contains('DISTRO_FEATURES', 'dm-verity', 'file://0001-crypto-hse-Drop-the-sha256-support.patch', '', d)}"
 
 SRC_URI:append:aptiv-cvc = " \
+	file://0001-arm64-tlbflush-add-vae2is-and-vale2is-ops-under-CONF.patch \
 	${LINUX_DM_VERITY_PATCH} \
 	${LINUX_HVP_PATCH} \
 	${@bb.utils.contains('MACHINE_FEATURES', 'disable_linux_i2c4', \
